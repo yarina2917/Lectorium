@@ -1,0 +1,166 @@
+body {
+    font: 14px "Arial";
+    line-height: 22px;
+}
+
+a {
+    font: 14px "Arial";
+    line-height: 22px;
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+
+/*Header*/
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-container > div {
+    height: 70px;
+    background-color: gray;
+}
+
+.header-item-1 {
+    flex-basis: 15%;
+}
+.header-item-2 {
+    flex-basis: 30%;
+}
+.header-item-3 {
+    flex-basis: 50%;
+}
+
+/*Main*/
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+/*Left side*/
+
+.left-side {
+    flex-basis: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-side-nav {
+    background-color: gray;
+}
+
+.left-side-nav-list {
+    padding: 10px;
+}
+
+.left-side-bottom {
+    height: 70px;
+    background-color: gray;
+}
+
+/*Right side*/
+
+.right-side {
+    flex-basis: 75%;
+}
+
+.right-side-item-1 {
+    height: 100px;
+    margin-bottom: 15px;
+    background-color: silver;
+}
+
+.right-side-item-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+}
+
+.right-side-item-2 > li {
+    width: 119px;
+    height: 135px;
+    margin: 0 0 20px 20px;
+    background-color: silver;
+}
+
+.right-side-item-3 {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+}
+
+.right-side-item-3 > div {
+    flex-basis: 45%;
+    padding: 10px;
+    background-color: silver;
+}
+
+/*Footer*/
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-item-1,
+.footer-item-2,
+.footer-item-3 {
+    flex-basis: 30%;
+    min-height: 150px;
+    padding: 10px;
+}
+
+.footer-item-1 {
+    display: flex;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+}
+
+.footer-item-1 ul {
+    flex: 1 1 0;
+}
+
+.footer-item-2 {
+    background-color: gray;
+}
+
+.footer-item-2 li::before {
+    content: "■";
+    padding-right: 5px;
+    color: white;
+}
+
+.footer-item-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.footer-item-3 > div {
+    background-color: gray;
+    height: 70px;
+}
+
