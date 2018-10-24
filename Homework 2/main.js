@@ -32,7 +32,7 @@ function sumArr(arr) {
 }
 
 function printResult(arr) {
-    console.log(arr +  "  sum:" + sumArr(arr) + " min:" + minArr(arr) + " max:" + maxArr(arr))
+    console.log(`${arr}  sum: ${sumArr(arr)} min: ${minArr(arr)} max: ${maxArr(arr)}`);
 }
 
 printResult([3,0,-5,1,44,-12,3,0,0,1,2,-3,-3,2,1,4,-2-3-1]);
