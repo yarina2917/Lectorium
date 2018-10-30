@@ -11,7 +11,7 @@ function calculateWater (arr) {
     let rightValueIndex;
     let sumRight = 0;
 
-    while (maxLeftIndex !== 0) {
+    while (maxLeftIndex) {
         for (let i = maxLeftIndex - 1; i >= 0; i--) {
             if (arr[i] > leftValue) leftValue = arr[i];
         }
