@@ -1,13 +1,13 @@
 function calculateWater (arr) {
     let maxLeft = Math.max(...arr);
     let maxLeftIndex = arr.indexOf(maxLeft);
-    let leftValue = -Infinity;
+    let leftValue = 0;
     let leftValueIndex;
     let sumLeft = 0;
 
     let maxRight = Math.max(...arr);
     let maxRightIndex = arr.indexOf(maxRight);
-    let rightValue = -Infinity;
+    let rightValue = 0;
     let rightValueIndex;
     let sumRight = 0;
 
@@ -16,25 +16,25 @@ function calculateWater (arr) {
             if (arr[i] > leftValue) leftValue = arr[i];
         }
         leftValueIndex = arr.indexOf(leftValue);
-        for (let j = maxLeftIndex - 1; j !== leftValueIndex; j--) {
+        for (let j = maxLeftIndex - 1; j > leftValueIndex; j--) {
             sumLeft += (arr[leftValueIndex] - arr[j]);
         }
         maxLeft = leftValue;
         maxLeftIndex = arr.indexOf(maxLeft);
-        leftValue = -Infinity;
+        leftValue = 0;
     }
 
-    while (maxRightIndex !== (arr.length - 1)) {
+    while (maxRightIndex < (arr.length - 1)) {
         for (let i = maxRightIndex + 1; i < arr.length; i++) {
             if (arr[i] > rightValue) rightValue = arr[i];
         }
         rightValueIndex = arr.lastIndexOf(rightValue);
-        for (let j = maxRightIndex + 1; j !== rightValueIndex; j++) {
+        for (let j = maxRightIndex + 1; j < rightValueIndex; j++) {
             sumRight += (arr[rightValueIndex] - arr[j]);
         }
         maxRight = rightValue;
         maxRightIndex = arr.lastIndexOf(maxRight);
-        rightValue = -Infinity;
+        rightValue = 0;
     }
 
     return sumLeft + sumRight
