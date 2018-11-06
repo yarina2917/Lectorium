@@ -4,13 +4,11 @@ function coordinates(R, C, r0, c0) {
     let coordIncreaseTemp = 1;
     let coordDecreaseCount = 2;
     let coordDecreaseTemp = 2;
-    let check = true;
 
     let arrCoordinates = [];
     arrCoordinates.push([r0, c0]);
 
     while (arrCoordinates.length < R * C) {
-        if (check) {
             while (coordIncreaseCount) {
                 c0++;
                 if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
@@ -31,8 +29,7 @@ function coordinates(R, C, r0, c0) {
 
             coordIncreaseTemp += 2;
             coordIncreaseCount = coordIncreaseTemp;
-            check = false;
-        } else {
+
             while (coordDecreaseCount) {
                 c0--;
                 if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
@@ -53,8 +50,6 @@ function coordinates(R, C, r0, c0) {
 
             coordDecreaseTemp += 2;
             coordDecreaseCount = coordDecreaseTemp;
-            check = true;
-        }
     }
 
     return arrCoordinates;
