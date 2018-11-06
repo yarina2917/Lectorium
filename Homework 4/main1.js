@@ -2,20 +2,22 @@ let arr = [1, 5, 9, 2, 4];
 
 // 1) myForEach
 
-function myForEach (arr, callback) {
+function myForEach (callback) {
     for (let i = 0; i < arr.length; i++) {
         callback(arr[i], i, arr)
     }
     return arr
 }
 
-myForEach(arr, function (item) {
+Array.prototype.myForEach = myForEach;
+
+arr.myForEach(function (item) {
    console.log(item)
 });
 
 // 2) myMap
 
-function myMap (arr, callback) {
+function myMap (callback) {
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
         newArr.push(callback(arr[i], i, arr))
@@ -23,13 +25,15 @@ function myMap (arr, callback) {
     return newArr
 }
 
-myMap(arr, function (item) {
+Array.prototype.myMap = myMap;
+
+arr.myMap(function (item) {
     return item + 2
 });
 
 // 3) mySort
 
-function mySort (arr) {
+function mySort () {
     let temp;
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < (arr.length - i - 1); j++) {
@@ -43,11 +47,13 @@ function mySort (arr) {
     return arr
 }
 
-mySort(arr);
+Array.prototype.mySort = mySort;
+
+arr.mySort();
 
 // 4) myFilter
 
-function myFilter (arr, callback) {
+function myFilter (callback) {
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
         if (callback(arr[i], i, arr)) {
@@ -57,7 +63,9 @@ function myFilter (arr, callback) {
     return newArr
 }
 
-myFilter(arr, function (item) {
+Array.prototype.myFilter = myFilter;
+
+arr.myFilter(function (item) {
     return item > 2
 });
 
