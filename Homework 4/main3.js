@@ -9,47 +9,47 @@ function coordinates(R, C, r0, c0) {
     arrCoordinates.push([r0, c0]);
 
     while (arrCoordinates.length < R * C) {
-            while (coordIncreaseCount) {
-                c0++;
-                if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordIncreaseCount--;
+        while (coordIncreaseCount) {
+            c0++;
+            if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
+                arrCoordinates.push([r0, c0]);
             }
+            coordIncreaseCount--;
+        }
 
-            coordIncreaseCount = coordIncreaseTemp;
+        coordIncreaseCount = coordIncreaseTemp;
 
-            while (coordIncreaseCount) {
-                r0++;
-                if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordIncreaseCount--;
+        while (coordIncreaseCount) {
+            r0++;
+            if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
+                arrCoordinates.push([r0, c0]);
             }
+            coordIncreaseCount--;
+        }
 
-            coordIncreaseTemp += 2;
-            coordIncreaseCount = coordIncreaseTemp;
+        coordIncreaseTemp += 2;
+        coordIncreaseCount = coordIncreaseTemp;
 
-            while (coordDecreaseCount) {
-                c0--;
-                if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordDecreaseCount--;
+        while (coordDecreaseCount) {
+            c0--;
+            if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
+                arrCoordinates.push([r0, c0]);
             }
+            coordDecreaseCount--;
+        }
 
-            coordDecreaseCount = coordDecreaseTemp;
+        coordDecreaseCount = coordDecreaseTemp;
 
-            while (coordDecreaseCount) {
-                r0--;
-                if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordDecreaseCount--;
+        while (coordDecreaseCount) {
+            r0--;
+            if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
+                arrCoordinates.push([r0, c0]);
             }
+            coordDecreaseCount--;
+        }
 
-            coordDecreaseTemp += 2;
-            coordDecreaseCount = coordDecreaseTemp;
+        coordDecreaseTemp += 2;
+        coordDecreaseCount = coordDecreaseTemp;
     }
 
     return arrCoordinates;
