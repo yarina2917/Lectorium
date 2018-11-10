@@ -72,17 +72,17 @@ arr.myFilter(function (item) {
 // Closure - Create a constructor function which will use closure for working with private data.
 // It should have 2 private methods and 2 private props which we can change only with that private methods.
 
-function User() {
+function User () {
     let name = 'Petya';
     let age = 25;
 
-    function checkName(newName, keyword) {
+    function checkName (newName, keyword) {
         if (keyword === 'admin') {
             name = newName;
         }
     }
 
-    function checkAge(newAge) {
+    function checkAge (newAge) {
         if (newAge > 18) {
             age = newAge;
         }
