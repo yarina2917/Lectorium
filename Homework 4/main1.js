@@ -2,14 +2,12 @@ let arr = [1, 5, 9, 2, 4];
 
 // 1) myForEach
 
-function myForEach (callback) {
+Array.prototype.myForEach = function (callback, thisArg) {
+    let arr = thisArg || this;
     for (let i = 0; i < arr.length; i++) {
         callback(arr[i], i, arr)
     }
-    return arr
-}
-
-Array.prototype.myForEach = myForEach;
+};
 
 arr.myForEach(function (item) {
    console.log(item)
@@ -17,27 +15,42 @@ arr.myForEach(function (item) {
 
 // 2) myMap
 
-function myMap (callback) {
+Array.prototype.myMap = function (callback, thisArg) {
+    let arr = thisArg || this;
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
         newArr.push(callback(arr[i], i, arr))
     }
     return newArr
-}
-
-Array.prototype.myMap = myMap;
+};
 
 arr.myMap(function (item) {
     return item + 2
-});
+}, [2, 6, 10, 3, 5]);
 
 // 3) mySort
 
-function mySort () {
+Array.prototype.mySort = function (compareFunction) {
+    let arr = this;
     let temp;
+    let sort;
+
+    function compare(a, b) {
+        if (a.toString() < b.toString()) {
+            return -1;
+        }
+        if (a.toString() > b.toString()) {
+            return 1;
+        }
+        return 0;
+    }
+
+    sort = compareFunction || compare;
+
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < (arr.length - i - 1); j++) {
-            if (arr[j] > arr[j + 1]) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            let check = sort(arr[j], arr[j + 1]);
+            if (check === 1) {
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -45,15 +58,21 @@ function mySort () {
         }
     }
     return arr
+};
+
+let arr2 = [15, 2, 10, 'A', 8, 'a', 1, 22, 'c'];
+arr2.mySort();
+
+function compareNumeric(a, b) {
+    if (a > b) return 1;
+    if (a < b) return -1;
 }
-
-Array.prototype.mySort = mySort;
-
-arr.mySort();
+arr2.mySort(compareNumeric);
 
 // 4) myFilter
 
-function myFilter (callback) {
+Array.prototype.myFilter = function (callback, thisArg) {
+    let arr = thisArg || this;
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
         if (callback(arr[i], i, arr)) {
@@ -61,9 +80,7 @@ function myFilter (callback) {
         }
     }
     return newArr
-}
-
-Array.prototype.myFilter = myFilter;
+};
 
 arr.myFilter(function (item) {
     return item > 2
