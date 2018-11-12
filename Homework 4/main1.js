@@ -33,24 +33,16 @@ arr.myMap(function (item) {
 Array.prototype.mySort = function (compareFunction) {
     let arr = this;
     let temp;
-    let sort;
-
-    function compare(a, b) {
-        if (a.toString() < b.toString()) {
-            return -1;
-        }
-        if (a.toString() > b.toString()) {
-            return 1;
-        }
-        return 0;
-    }
-
-    sort = compareFunction || compare;
+    let check;
 
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - i - 1; j++) {
-            let check = sort(arr[j], arr[j + 1]);
-            if (check === 1) {
+            if (compareFunction) {
+                check = compareFunction(arr[j], arr[j + 1]) > 0
+            } else {
+                check = arr[j].toString() > arr[j + 1].toString()
+            }
+            if (check) {
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -60,14 +52,12 @@ Array.prototype.mySort = function (compareFunction) {
     return arr
 };
 
-let arr2 = [15, 2, 10, 'A', 8, 'a', 1, 22, 'c'];
-arr2.mySort();
+[13, 2, 10, 'a', 8, 'A', 1, 22, 'c'].mySort();
 
-function compareNumeric(a, b) {
-    if (a > b) return 1;
-    if (a < b) return -1;
+function compareNumbers(a, b) {
+    return a - b;
 }
-arr2.mySort(compareNumeric);
+[18, 2, 11, 9, 1, 10, 22].mySort(compareNumbers);
 
 // 4) myFilter
 
