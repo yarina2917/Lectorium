@@ -1,60 +1,39 @@
 function coordinates(R, C, r0, c0) {
 
-    let coordIncreaseCount = 1;
-    let coordIncreaseTemp = 1;
-    let coordDecreaseCount = 2;
-    let coordDecreaseTemp = 2;
-    let check = true;
-
+    let count = 1;
     let arrCoordinates = [];
     arrCoordinates.push([r0, c0]);
 
     while (arrCoordinates.length < R * C) {
-        if (check) {
-            while (coordIncreaseCount) {
-                c0++;
-                if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordIncreaseCount--;
+        for (let i = count; i > 0; i--) {
+            c0++;
+            if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
+                arrCoordinates.push([r0, c0]);
             }
-
-            coordIncreaseCount = coordIncreaseTemp;
-
-            while (coordIncreaseCount) {
-                r0++;
-                if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordIncreaseCount--;
-            }
-
-            coordIncreaseTemp += 2;
-            coordIncreaseCount = coordIncreaseTemp;
-            check = false;
-        } else {
-            while (coordDecreaseCount) {
-                c0--;
-                if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordDecreaseCount--;
-            }
-
-            coordDecreaseCount = coordDecreaseTemp;
-
-            while (coordDecreaseCount) {
-                r0--;
-                if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
-                    arrCoordinates.push([r0, c0]);
-                }
-                coordDecreaseCount--;
-            }
-
-            coordDecreaseTemp += 2;
-            coordDecreaseCount = coordDecreaseTemp;
-            check = true;
         }
+
+        for (let i = count; i > 0; i--) {
+            r0++;
+            if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
+                arrCoordinates.push([r0, c0]);
+            }
+        }
+
+        for (let i = count + 1; i > 0; i--) {
+            c0--;
+            if (c0 >= 0 && c0 < C && r0 >= 0 && r0 < R) {
+                arrCoordinates.push([r0, c0]);
+            }
+        }
+
+        for (let i = count + 1; i > 0; i--) {
+            r0--;
+            if (r0 >= 0 && r0 < R && c0 >= 0 && c0 < C) {
+                arrCoordinates.push([r0, c0]);
+            }
+        }
+
+        count += 2;
     }
 
     return arrCoordinates;
