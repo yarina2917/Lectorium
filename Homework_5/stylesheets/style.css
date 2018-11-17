@@ -1,0 +1,204 @@
+/* line 5, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../var/lib/gems/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/style.scss */
+*:focus {
+  outline: none;
+}
+
+/* line 15, ../sass/style.scss */
+body {
+  background-color: #fff5e8;
+}
+
+/* line 19, ../sass/style.scss */
+#controlPanel {
+  min-height: 100px;
+  padding: 15px;
+  background-color: bisque;
+}
+/* line 23, ../sass/style.scss */
+#controlPanel h1 {
+  font-size: 35px;
+  text-align: center;
+  border-bottom: 2px solid gray;
+}
+
+/* line 30, ../sass/style.scss */
+.controlButtons {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 33, ../sass/style.scss */
+.controlButtons button {
+  margin: 0 10px;
+  width: 175px;
+  min-height: 40px;
+  font-size: 18px;
+  border: 1px solid grey;
+  text-align: center;
+  background-color: #f7d6af;
+  cursor: pointer;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+/* line 43, ../sass/style.scss */
+.controlButtons button:hover {
+  background-color: #fff6ed;
+}
+/* line 47, ../sass/style.scss */
+.controlButtons button.active {
+  background-color: #fff6ed;
+}
+
+/* line 52, ../sass/style.scss */
+#todo .container {
+  max-width: 900px;
+  padding: 15px;
+  margin: 0 auto;
+}
+/* line 56, ../sass/style.scss */
+#todo .container .inputItem {
+  margin-bottom: 20px;
+  padding: 0 7px;
+  width: 85%;
+  min-height: 40px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 0 11px 8px bisque;
+}
+/* line 66, ../sass/style.scss */
+#todo .container .addItemButton {
+  width: 10%;
+  height: 40px;
+  font-size: 18px;
+  background-color: #f7d6af;
+  border: none;
+  box-shadow: 0 0 11px 8px bisque;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 76, ../sass/style.scss */
+#todo .container .addItemButton:hover {
+  background-color: #fff6ed;
+}
+/* line 80, ../sass/style.scss */
+#todo .container .visibility {
+  display: none;
+}
+
+/* line 86, ../sass/style.scss */
+.list li {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  min-height: 35px;
+  margin-bottom: 10px;
+  padding: 7px;
+  font-size: 18px;
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0 0 11px 8px bisque;
+}
+/* line 97, ../sass/style.scss */
+.list li .done, .list li .remove, .list li .return {
+  color: black;
+  margin-left: 7px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 103, ../sass/style.scss */
+.list li .remove {
+  margin-top: 3px;
+}
+/* line 106, ../sass/style.scss */
+.list li .done:hover {
+  color: green;
+}
+/* line 109, ../sass/style.scss */
+.list li .remove:hover {
+  color: red;
+}
+/* line 112, ../sass/style.scss */
+.list li .return:hover {
+  color: darkviolet;
+}
+/* line 116, ../sass/style.scss */
+.list li.visibility {
+  display: none;
+}
