@@ -165,3 +165,4 @@ console.log(isBalanced('foo { bar { baz } boo }'));
 console.log(isBalanced('foo { bar { baz }'));
 console.log(isBalanced('foo { bar } }'));
 console.log(isBalanced('{{}}'));
+
