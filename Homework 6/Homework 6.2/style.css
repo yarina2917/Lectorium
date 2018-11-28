@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding-top: 15px;
+}
+
+.tags-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background: url("images/bg2.png");
+    background-size: cover;
+}
+
+.elem {
+    display: flex;
+    font-size: 17px;
+    position: absolute;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.text {
+    display: inline-block;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.remove {
+    width: 12px;
+    display: inline-block;
+    padding: 7px;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.removeBtnLeft {
+    order: -1;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    z-index: 1000;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
