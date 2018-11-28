@@ -108,13 +108,8 @@ console.log(indexOf([1, 2, 3], 4));
 
 function isPalindrome (str) {
     str = str.toLowerCase().replace(/ /g,'');
-    let middle = Math.floor(str.length / 2);
-    for (let i = 0; i < middle; i++) {
-        if (str[i] !== str[str.length - i - 1]) {
-            return false
-        }
-    }
-    return true
+    let reverseStr = str.split('').reverse().join('');
+    return str === reverseStr;
 }
 
 console.log(isPalindrome(''));
