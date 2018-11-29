@@ -10,13 +10,12 @@ let circles;
 
 container.style.transform = `translateX(${-(itemWidth)}px)`;
 
-// add ondragstart on img and id to parent element
+// add ondragstart on img
 
 Array.prototype.forEach.call(imgList, (img, i) => {
     img.ondragstart = function() {
         return false;
     };
-    img.parentElement.setAttribute('data-id', i)
 });
 
 // create circle navigation
