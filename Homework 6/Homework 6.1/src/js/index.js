@@ -30,7 +30,7 @@ function createCircleNavigation () {
         circleDiv.appendChild(circle);
     }
     circles = document.querySelectorAll('.circle');
-    document.querySelector('.circle').classList.add('circleActive');
+    circles[0].classList.add('circleActive');
 }
 
 createCircleNavigation();
@@ -60,8 +60,7 @@ circleDiv.addEventListener('click', (e) => {
 // change item on right arrow click
 
 rightBtn.addEventListener('click', () => {
-    let id = removeActiveClasses();
-    toRightItem(id);
+    toRightItem(removeActiveClasses());
 });
 
 function toRightItem (id, currentX) {
@@ -79,8 +78,7 @@ function toRightItem (id, currentX) {
 // change item on left arrow click
 
 leftBtn.addEventListener('click', () => {
-    let id = removeActiveClasses();
-    toLeftItem(id);
+    toLeftItem(removeActiveClasses());
 });
 
 function toLeftItem (id, currentX) {
@@ -137,8 +135,7 @@ function animate(id, currentX, direction) {
 
 container.addEventListener('mousedown', (e) => {
     let start = e.pageX;
-    let activeItem = document.querySelector('.activeItem');
-    let id = +activeItem.getAttribute('data-id');
+    let id = +document.querySelector('.activeItem').getAttribute('data-id');
 
     container.onmousemove = function (e) {
         if (start > e.pageX) {
