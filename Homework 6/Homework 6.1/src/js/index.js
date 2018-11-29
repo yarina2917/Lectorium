@@ -1,7 +1,6 @@
 let container = document.querySelector('.item-container');
 let itemList = document.querySelectorAll('.item');
-let item = document.querySelector('.item');
-let itemWidth = item.clientWidth;
+let itemWidth = itemList[0].clientWidth;
 let imgList = document.querySelectorAll('.img');
 let countItems = itemList.length - 1;
 let leftBtn = document.querySelector('.leftBtn');
