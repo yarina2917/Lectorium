@@ -34,23 +34,20 @@ function createCircleNavigation () {
 
 createCircleNavigation();
 
-// remove active class from circle active and item active
+// remove active class from circle active
 
-function removeActiveClasses () {
+function removeActiveClass () {
     let circleActive = document.querySelector('.circleActive');
     circleActive.classList.remove('circleActive');
-    let activeItem = document.querySelector('.activeItem');
-    activeItem.classList.remove('activeItem');
-    return +activeItem.getAttribute('data-id');
+    return +circleActive.getAttribute('data-id') + 1;
 }
 
 // change item on circle click
 
 circleDiv.addEventListener('click', (e) => {
     if (e.target.classList.contains('circle')) {
-        removeActiveClasses();
+        removeActiveClass();
         let id = +e.target.getAttribute('data-id');
-        itemList[id].classList.add('activeItem');
         e.target.classList.add('circleActive');
         container.style.transform = `translateX(${-((id + 1) * itemWidth)}px)`;
     }
@@ -59,16 +56,14 @@ circleDiv.addEventListener('click', (e) => {
 // change item on right arrow click
 
 rightBtn.addEventListener('click', () => {
-    toRightItem(removeActiveClasses());
+    toRightItem(removeActiveClass());
 });
 
 function toRightItem (id, currentX) {
     if (id === countItems + 1) {
-        itemList[0].classList.add('activeItem');
         circles[0].classList.add('circleActive');
         animate(id, currentX, 'rightLast');
     } else {
-        itemList[id].classList.add('activeItem');
         circles[id].classList.add('circleActive');
         animate(id, currentX, 'right');
     }
@@ -77,16 +72,14 @@ function toRightItem (id, currentX) {
 // change item on left arrow click
 
 leftBtn.addEventListener('click', () => {
-    toLeftItem(removeActiveClasses());
+    toLeftItem(removeActiveClass());
 });
 
 function toLeftItem (id, currentX) {
     if (id === 1) {
-        itemList[countItems].classList.add('activeItem');
         circles[countItems].classList.add('circleActive');
         animate(id, currentX, 'leftLast');
     } else {
-        itemList[id - 2].classList.add('activeItem');
         circles[id - 2].classList.add('circleActive');
         animate(id, currentX, 'left');
     }
@@ -134,7 +127,7 @@ function animate(id, currentX, direction) {
 
 container.addEventListener('mousedown', (e) => {
     let start = e.pageX;
-    let id = +document.querySelector('.activeItem').getAttribute('data-id');
+    let id = +document.querySelector('.circleActive').getAttribute('data-id') + 1;
 
     container.onmousemove = function (e) {
         if (start > e.pageX) {
@@ -148,10 +141,10 @@ container.addEventListener('mousedown', (e) => {
         // if the shift is small, the active element does not change, else the element changes
         let currentX = +container.style.transform.replace(/\D/g, "");
         if (currentX - 20 > itemWidth * id) {
-            removeActiveClasses();
+            removeActiveClass();
             toRightItem(id, currentX);
         } else if (currentX + 20 < itemWidth * id) {
-            removeActiveClasses();
+            removeActiveClass();
             toLeftItem(id, currentX);
         } else {
             container.style.transform = `translateX(${-(itemWidth * id)}px)`;
