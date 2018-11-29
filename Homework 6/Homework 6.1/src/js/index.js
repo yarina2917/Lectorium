@@ -42,7 +42,7 @@ function removeActiveClasses () {
     circleActive.classList.remove('circleActive');
     let activeItem = document.querySelector('.activeItem');
     activeItem.classList.remove('activeItem');
-    return activeItem
+    return +activeItem.getAttribute('data-id');
 }
 
 // change item on circle click
@@ -53,7 +53,6 @@ circleDiv.addEventListener('click', (e) => {
         let id = +e.target.getAttribute('data-id');
         itemList[id].classList.add('activeItem');
         e.target.classList.add('circleActive');
-
         container.style.transform = `translateX(${-((id + 1) * itemWidth)}px)`;
     }
 });
@@ -61,18 +60,17 @@ circleDiv.addEventListener('click', (e) => {
 // change item on right arrow click
 
 rightBtn.addEventListener('click', () => {
-    let activeItem = removeActiveClasses();
-    let id = +activeItem.getAttribute('data-id');
-    toRightItem(activeItem, id);
+    let id = removeActiveClasses();
+    toRightItem(id);
 });
 
-function toRightItem (activeItem, id, currentX) {
+function toRightItem (id, currentX) {
     if (id === countItems + 1) {
         itemList[0].classList.add('activeItem');
         circles[0].classList.add('circleActive');
         animate(id, currentX, 'rightLast');
     } else {
-        activeItem.nextElementSibling.classList.add('activeItem');
+        itemList[id].classList.add('activeItem');
         circles[id].classList.add('circleActive');
         animate(id, currentX, 'right');
     }
@@ -81,18 +79,17 @@ function toRightItem (activeItem, id, currentX) {
 // change item on left arrow click
 
 leftBtn.addEventListener('click', () => {
-    let activeItem = removeActiveClasses();
-    let id = +activeItem.getAttribute('data-id');
-    toLeftItem(activeItem, id);
+    let id = removeActiveClasses();
+    toLeftItem(id);
 });
 
-function toLeftItem (activeItem, id, currentX) {
+function toLeftItem (id, currentX) {
     if (id === 1) {
         itemList[countItems].classList.add('activeItem');
         circles[countItems].classList.add('circleActive');
         animate(id, currentX, 'leftLast');
     } else {
-        activeItem.previousElementSibling.classList.add('activeItem');
+        itemList[id - 2].classList.add('activeItem');
         circles[id - 2].classList.add('circleActive');
         animate(id, currentX, 'left');
     }
@@ -156,10 +153,10 @@ container.addEventListener('mousedown', (e) => {
         let currentX = +container.style.transform.replace(/\D/g, "");
         if (currentX - 20 > itemWidth * id) {
             removeActiveClasses();
-            toRightItem(activeItem, id, currentX);
+            toRightItem(id, currentX);
         } else if (currentX + 20 < itemWidth * id) {
             removeActiveClasses();
-            toLeftItem(activeItem, id, currentX);
+            toLeftItem(id, currentX);
         } else {
             container.style.transform = `translateX(${-(itemWidth * id)}px)`;
         }
@@ -168,4 +165,3 @@ container.addEventListener('mousedown', (e) => {
         document.onmouseup = null;
     };
 });
-
