@@ -4,7 +4,7 @@ function coordinates(R, C, r0, c0) {
     let arrCoordinates = [];
     arrCoordinates.push([r0, c0]);
 
-    let max = Math.max(R, C);
+    let max = Math.max(r0, R-r0-1, c0, C-c0-1) + 1;
 
     for (let j = 0; j < max; j++) {
         for (let i = count; i > 0; i--) {
