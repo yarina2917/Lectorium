@@ -4,7 +4,7 @@ function coordinates(R, C, r0, c0) {
     let arrCoordinates = [];
     arrCoordinates.push([r0, c0]);
 
-    let max = Math.max(r0, R-r0-1, c0, C-c0-1);
+    let max = Math.max(R, C);
 
     for (let j = 0; j < max; j++) {
         for (let i = count; i > 0; i--) {
@@ -41,3 +41,5 @@ function coordinates(R, C, r0, c0) {
 
 console.log(coordinates(5, 6, 1, 4));
 console.log(coordinates(1, 4, 0, 0));
+console.log(coordinates(2, 2, 0, 0));
+console.log(coordinates(2, 2, 1, 1));
